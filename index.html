@@ -1,86 +1,305 @@
-section class="page" id="page3">
-<div class="content">
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Untuk Raffa | Dari Nay</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-<div class="nomor">02 — TETAP SEMANGAT</div>
-<h2>Untuk semua yang sedang kamu perjuangkan.</h2>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#050913;--blue:#83bdff;--white:#edf5ff;--muted:#a6b5c8;--border:#304b6b}
+body{min-height:100vh;background:radial-gradient(circle at 15% 15%,#163457 0%,transparent 38%),radial-gradient(circle at 90% 85%,#122b4b 0%,transparent 35%),var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;overflow-x:hidden}
+#stars{position:fixed;inset:0;pointer-events:none;z-index:0}
+.star{position:absolute;color:#b9dcff;animation:sparkle 3s infinite alternate}
+@keyframes sparkle{from{opacity:.15;transform:scale(.7)}to{opacity:.9;transform:scale(1.2)}}
+header{position:fixed;width:100%;top:0;padding:18px 7%;display:flex;justify-content:space-between;align-items:center;background:#050913df;backdrop-filter:blur(15px);border-bottom:1px solid #ffffff15;z-index:100}
+.logo{font-family:'Playfair Display',serif;font-size:22px;letter-spacing:3px}
+.logo span{color:var(--blue)}
+.header-text{color:var(--muted);font-size:10px;letter-spacing:2px}
+.progress{position:fixed;top:59px;width:100%;height:2px;background:#1a2c42;z-index:101}
+.progress-fill{width:11.11%;height:100%;background:var(--blue);box-shadow:0 0 12px var(--blue);transition:.5s}
+.page{display:none;min-height:100vh;padding:120px 22px 60px;align-items:center;justify-content:center;position:relative;z-index:1}
+.page.active{display:flex;animation:appear .7s ease}
+@keyframes appear{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.container{max-width:850px;width:100%;margin:auto}
+.center{text-align:center}
+.eyebrow{color:var(--blue);font-size:10px;letter-spacing:4px;margin-bottom:22px}
+h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500}
+.heading{font-size:clamp(38px,7vw,65px);line-height:1.2;margin-bottom:25px}
+.heading em{color:var(--blue)}
+.description{color:var(--muted);font-size:14px;line-height:2;max-width:600px;margin:0 auto 20px}
+.divider{width:55px;height:2px;background:var(--blue);box-shadow:0 0 12px var(--blue);margin:25px auto}
+.actions{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:32px}
+.btn{padding:14px 24px;border:1px solid #548fc9;background:linear-gradient(120deg,#164477,#2869a6);color:white;font-size:11px;letter-spacing:1px;cursor:pointer;transition:.3s;border-radius:3px}
+.btn:hover{transform:translateY(-4px);box-shadow:0 10px 25px #287acb55}
+.btn-outline{background:transparent;border-color:#344c68;color:#c0d4ea}
+.welcome{padding:65px 25px;border:1px solid #54799f66;background:linear-gradient(145deg,#142a45,#080f1b);box-shadow:0 25px 80px #0008;position:relative;overflow:hidden}
+.welcome::before{content:"✦";position:absolute;font-size:220px;color:#ffffff06;right:-20px;bottom:-80px}
+.welcome h1{font-size:clamp(50px,9vw,85px);line-height:1.1}
+.welcome h1 span{display:block;color:var(--blue);font-style:italic}
+.welcome p{color:#afc0d4;max-width:470px;line-height:2;font-size:14px;margin:25px auto}
+.symbol{color:var(--blue);font-size:32px;margin-bottom:25px}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:15px;margin-top:30px}
+.card{padding:27px;background:linear-gradient(145deg,#13243a,#091321);border:1px solid var(--border);transition:.3s}
+.card:hover{transform:translateY(-5px);border-color:var(--blue);box-shadow:0 15px 35px #0006}
+.card-number{color:var(--blue);font-size:10px;letter-spacing:3px;margin-bottom:18px}
+.card h3{font-size:23px;margin-bottom:12px}
+.card p{color:var(--muted);font-size:13px;line-height:1.9}
+.quote{padding:30px;margin:30px 0;background:linear-gradient(90deg,#152f4e,#0b1728);border-left:2px solid var(--blue);text-align:left}
+.quote p{color:#d4e6f8;font-family:'Playfair Display',serif;font-style:italic;font-size:21px;line-height:1.8}
+.secret-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:30px}
+.secret-btn{padding:20px;text-align:left;border:1px solid var(--border);background:#101f32;color:#d2e4f8;cursor:pointer;transition:.3s}
+.secret-btn:hover{background:#1a3859;border-color:var(--blue)}
+.secret-result{display:none;padding:30px;margin-top:22px;background:#132b47;border:1px solid #568bc1;color:#e0edfa;font-size:14px;line-height:2}
+.letter{padding:45px 35px;background:linear-gradient(145deg,#152b45,#091321);border:1px solid #496a8d;box-shadow:0 20px 60px #0007}
+.letter-top{display:flex;justify-content:space-between;color:var(--blue);font-size:10px;letter-spacing:2px;margin-bottom:40px}
+.letter h2{font-size:35px;margin-bottom:25px}
+.letter p{color:#b5c4d6;font-size:14px;line-height:2.2;margin-bottom:20px}
+.signature{color:var(--blue);font-family:'Playfair Display',serif;font-size:29px;font-style:italic;margin-top:30px}
+.final-box{padding:55px 25px;background:linear-gradient(145deg,#142d4b,#080f1b);border:1px solid #4d79a5;box-shadow:0 0 65px #2164a522}
+.final-box h1{font-size:clamp(40px,8vw,70px)}
+.footer{margin-top:40px;color:#617995;font-size:10px;letter-spacing:3px}
+@media(max-width:600px){header{padding:17px 20px}.header-text{font-size:8px}.cards,.secret-grid{grid-template-columns:1fr}.welcome{padding:50px 20px}.letter{padding:30px 22px}.quote p{font-size:18px}}
+</style>
+</head>
 
-<p>
-Apa pun yang sedang kamu usahakan sekarang,
-jangan pernah meremehkan kemampuan dirimu sendiri.
-</p>
+<body>
+<div id="stars"></div>
 
-<div class="kartu">
-<h3>Tanggung jawabmu</h3>
-<p>
-Selesaikan satu per satu. Kamu nggak harus
-memikirkan dan menyelesaikan semuanya
-dalam waktu bersamaan.
-</p>
+<header>
+    <div class="logo">NAY<span>.</span></div>
+    <div class="header-text">SEBUAH PESAN UNTUK RAFFA</div>
+</header>
+
+<div class="progress">
+    <div class="progress-fill" id="progress"></div>
 </div>
 
-<div class="kartu">
-<h3>Keinginanmu</h3>
-<p>
-Terus usahakan apa yang memang ingin kamu capai.
-Jangan mudah menyerah hanya karena prosesnya
-terasa lebih panjang.
-</p>
-</div>
-
-<div class="kartu">
-<h3>Masa depanmu</h3>
-<p>
-Jangan biarkan satu kegagalan membuatmu
-meragukan semua kemampuan yang kamu punya.
-Masih banyak kesempatan di depan sana.
-</p>
-</div>
-
-<div class="tombol">
-<button onclick="go(4)">Masih ada pesan untukmu →</button>
-<button class="kembali" onclick="go(2)">Kembali</button>
+<!-- HALAMAN 1 -->
+<section class="page active" id="page1">
+<div class="container center">
+<div class="welcome">
+    <div class="symbol">✦</div>
+    <div class="eyebrow">DIBUAT KHUSUS UNTUKMU</div>
+    <h1>Alo,<span>sayangg.</span></h1>
+    <div class="divider"></div>
+    <p>Ini web yang Nay buat untuk kamu. Bukan sesuatu yang mewah, tetapi ada banyak kata yang ingin Nay sampaikan khusus untukmu.</p>
+    <p>Luangkan sedikit waktumu. Ada beberapa hal yang ingin Nay ceritakan.</p>
+    <div class="actions">
+        <button class="btn" onclick="go(2)">BUKA PESANKU →</button>
+    </div>
+    <div class="footer">DARI NAY, DENGAN TULUS</div>
 </div>
 </div>
 </section>
 
+<!-- HALAMAN 2 -->
+<section class="page" id="page2">
+<div class="container">
+    <div class="eyebrow">01 / TENTANG KAMU</div>
+    <h1 class="heading">Ada banyak hal yang <em>Nay hargai.</em></h1>
+    <p class="description">Nay tahu kamu punya banyak hal yang sedang dipikirkan, diperjuangkan, dan ingin dicapai. Mungkin tidak semuanya mudah, tetapi Nay berharap kamu tetap percaya pada dirimu sendiri.</p>
+    <div class="quote"><p>"Nay bangga sama kamu. Bukan hanya saat kamu berhasil, tetapi juga saat kamu tetap berusaha meskipun keadaan tidak selalu mudah."</p></div>
+    <p class="description">Jangan pernah menganggap usaha kecilmu tidak berarti. Semua proses yang kamu jalani punya nilainya sendiri.</p>
+    <div class="actions">
+        <button class="btn" onclick="go(3)">LANJUTKAN →</button>
+        <button class="btn btn-outline" onclick="go(1)">KEMBALI</button>
+    </div>
+</div>
+</section>
 
-<!-- HALAMAN 4: KETIKA LELAH -->
+<!-- HALAMAN 3 -->
+<section class="page" id="page3">
+<div class="container">
+    <div class="eyebrow">02 / SEMANGAT UNTUKMU</div>
+    <h1 class="heading">Jangan berhenti <em>berjuang.</em></h1>
+    <p class="description">Ada banyak hal baik yang masih menunggu untuk kamu capai. Jangan biarkan satu hari yang berat membuatmu melupakan semua alasan kamu memulai.</p>
+    <div class="cards">
+        <div class="card"><div class="card-number">01 — USAHA</div><h3>Satu per satu.</h3><p>Kamu nggak harus menyelesaikan semuanya sekaligus. Pelan-pelan, yang penting tetap berjalan.</p></div>
+        <div class="card"><div class="card-number">02 — PEKERJAAN</div><h3>Hargai prosesmu.</h3><p>Semoga setiap pekerjaan yang kamu lakukan membawa hasil yang baik.</p></div>
+        <div class="card"><div class="card-number">03 — IMPIAN</div><h3>Percaya dirimu.</h3><p>Jangan takut mencoba hal baru. Kamu masih punya banyak kesempatan untuk berkembang.</p></div>
+        <div class="card"><div class="card-number">04 — MASA DEPAN</div><h3>Terus bertumbuh.</h3><p>Semoga kamu menjadi seseorang yang semakin kuat, bijak, dan bahagia.</p></div>
+    </div>
+    <div class="actions">
+        <button class="btn" onclick="go(4)">HALAMAN SELANJUTNYA →</button>
+        <button class="btn btn-outline" onclick="go(2)">KEMBALI</button>
+    </div>
+</div>
+</section>
 
+<!-- HALAMAN 4 -->
 <section class="page" id="page4">
-<div class="content">
+<div class="container">
+    <div class="eyebrow">03 / KETIKA KAMU LELAH</div>
+    <h1 class="heading">Kamu juga boleh <em>beristirahat.</em></h1>
+    <p class="description">Sayang, jangan terlalu keras sama diri sendiri. Kamu nggak harus selalu terlihat kuat di setiap keadaan.</p>
+    <div class="quote"><p>"Kalau hari ini terasa berat, istirahatlah sebentar. Kamu tidak sedang berlomba dengan siapa pun."</p></div>
+    <div class="cards">
+        <div class="card"><h3>Ambil waktumu.</h3><p>Nggak apa-apa kalau kamu butuh waktu untuk menenangkan pikiran.</p></div>
+        <div class="card"><h3>Jangan menyerah.</h3><p>Satu keadaan sulit tidak menentukan seluruh perjalananmu.</p></div>
+    </div>
+    <div class="actions">
+        <button class="btn" onclick="go(5)">LANJUTKAN →</button>
+        <button class="btn btn-outline" onclick="go(3)">KEMBALI</button>
+    </div>
+</div>
+</section>
 
-<div class="nomor">03 — KETIKA KAMU LELAH</div>
-<h2>Kamu juga boleh beristirahat.</h2>
+<!-- HALAMAN 5 -->
+<section class="page" id="page5">
+<div class="container">
+    <div class="eyebrow">04 / MASA DEPANMU</div>
+    <h1 class="heading">Semoga semua <em>harapanmu tercapai.</em></h1>
+    <p class="description">Nay berharap semua hal yang sedang kamu usahakan bisa menemukan jalannya. Semoga kerja kerasmu membuahkan hasil yang selama ini kamu harapkan.</p>
+    <div class="cards">
+        <div class="card"><div class="card-number">01</div><h3>Kesempatan baik</h3><p>Semoga banyak kesempatan baik datang dalam perjalananmu.</p></div>
+        <div class="card"><div class="card-number">02</div><h3>Keberhasilan</h3><p>Semoga kamu bisa menikmati hasil dari setiap perjuanganmu.</p></div>
+        <div class="card"><div class="card-number">03</div><h3>Ketenangan</h3><p>Semoga pikiranmu selalu diberi ketenangan dalam menghadapi keadaan.</p></div>
+        <div class="card"><div class="card-number">04</div><h3>Kebahagiaan</h3><p>Semoga kamu selalu punya alasan untuk tersenyum.</p></div>
+    </div>
+    <div class="quote"><p>"Suatu hari nanti, semoga kamu bisa melihat ke belakang dan bangga karena tidak menyerah."</p></div>
+    <div class="actions">
+        <button class="btn" onclick="go(6)">PESAN RAHASIA →</button>
+        <button class="btn btn-outline" onclick="go(4)">KEMBALI</button>
+    </div>
+</div>
+</section>
 
-<p>
-Untuk seseorang yang selalu berusaha
-meskipun banyak hal tidak mudah dijalani.
-</p>
+<!-- HALAMAN 6 -->
+<section class="page" id="page6">
+<div class="container">
+    <div class="eyebrow">05 / PESAN TERSEMBUNYI</div>
+    <h1 class="heading">Ada pesan kecil <em>untukmu.</em></h1>
+    <p class="description">Pilih salah satu pesan di bawah ini. Setiap tombol menyimpan kata-kata kecil yang Nay siapkan.</p>
+    <div class="secret-grid">
+        <button class="secret-btn" onclick="showSecret(1)">01 / Saat kamu sedih</button>
+        <button class="secret-btn" onclick="showSecret(2)">02 / Saat kamu bahagia</button>
+        <button class="secret-btn" onclick="showSecret(3)">03 / Saat kamu lelah</button>
+        <button class="secret-btn" onclick="showSecret(4)">04 / Saat kamu ragu</button>
+        <button class="secret-btn" onclick="showSecret(5)">05 / Saat kamu merindukan Nay</button>
+        <button class="secret-btn" onclick="showSecret(6)">06 / Pesan paling spesial</button>
+    </div>
+    <div class="secret-result" id="secretResult"></div>
+    <div class="actions">
+        <button class="btn" onclick="go(7)">BUKA SURAT SPESIAL →</button>
+        <button class="btn btn-outline" onclick="go(5)">KEMBALI</button>
+    </div>
+</div>
+</section>
 
-<p>
-Sayang, kalau memang capek, istirahat dulu.
-Jangan memaksakan semuanya sekaligus.
-Kamu juga manusia yang punya batas.
-</p>
+<!-- HALAMAN 7 -->
+<section class="page" id="page7">
+<div class="container">
+    <div class="eyebrow">06 / SURAT PRIBADI</div>
+    <div class="letter">
+        <div class="letter-top"><span>UNTUK RAFFA</span><span>DARI NAY</span></div>
+        <h2>Untuk sayang,</h2>
+        <p>Nay mungkin nggak selalu bisa menemukan kata-kata yang tepat untuk menjelaskan semua hal yang ingin Nay sampaikan.</p>
+        <p>Tapi ada satu hal yang ingin Nay pastikan kamu tahu. Nay menghargai semua usaha, waktu, dan perjuangan yang sudah kamu lakukan selama ini.</p>
+        <p>Nay berharap kamu selalu punya semangat untuk menjalani hari-harimu. Kalau ada sesuatu yang terasa sulit, jangan merasa harus menghadapi semuanya sendirian.</p>
+        <p>Terima kasih sudah menjadi dirimu. Terima kasih untuk semua hal baik yang sudah kamu berikan. Semoga langkahmu selalu dipertemukan dengan banyak hal baik.</p>
+        <p>Jangan lupa menjaga diri, menghargai prosesmu, dan tetap percaya bahwa masa depan masih punya banyak cerita indah untukmu.</p>
+        <div class="signature">Dengan sayang,<br>Nay.</div>
+    </div>
+    <div class="actions">
+        <button class="btn" onclick="go(8)">LANJUTKAN →</button>
+        <button class="btn btn-outline" onclick="go(6)">KEMBALI</button>
+    </div>
+</div>
+</section>
 
-<p>
-Nggak apa-apa kalau hari ini kamu belum
-bisa melakukan banyak hal.
-Nggak apa-apa kalau sesekali kamu merasa lelah.
-</p>
+<!-- HALAMAN 8 -->
+<section class="page" id="page8">
+<div class="container">
+    <div class="eyebrow">07 / JANGAN LUPA</div>
+    <h1 class="heading">Beberapa hal yang perlu <em>kamu ingat.</em></h1>
+    <div class="cards">
+        <div class="card"><div class="card-number">01</div><h3>Kamu berharga.</h3><p>Jangan mengukur nilai dirimu hanya dari pencapaian yang sudah kamu dapatkan.</p></div>
+        <div class="card"><div class="card-number">02</div><h3>Kamu mampu belajar.</h3><p>Tidak mengetahui semuanya sekarang bukan berarti kamu tidak bisa berkembang.</p></div>
+        <div class="card"><div class="card-number">03</div><h3>Kamu tidak sendirian.</h3><p>Jangan ragu bercerita kepada orang yang kamu percaya ketika membutuhkan dukungan.</p></div>
+        <div class="card"><div class="card-number">04</div><h3>Nay bangga padamu.</h3><p>Nay menghargai perjalananmu, termasuk usaha kecil yang mungkin tidak terlihat.</p></div>
+    </div>
+    <div class="actions">
+        <button class="btn" onclick="go(9)">HALAMAN TERAKHIR →</button>
+        <button class="btn btn-outline" onclick="go(7)">KEMBALI</button>
+    </div>
+</div>
+</section>
 
-<div class="garis"></div>
+<!-- HALAMAN 9 -->
+<section class="page" id="page9">
+<div class="container center">
+    <div class="final-box">
+        <div class="symbol">✦</div>
+        <div class="eyebrow">AKHIR DARI SURAT KECIL INI</div>
+        <h1 class="heading">Terima kasih telah <em>menjadi dirimu.</em></h1>
+        <div class="divider"></div>
+        <p class="description">Semoga setelah membaca semua ini, kamu bisa menjalani hari dengan sedikit lebih semangat.</p>
+        <p class="description">Jangan pernah berhenti menjadi seseorang yang terus belajar, berusaha, dan bertumbuh.</p>
+        <p class="description">Kalau suatu saat kamu lupa betapa berharganya dirimu, baca lagi pesan kecil dari Nay ini.</p>
+        <div class="signature">Dengan sayang,<br>Nay.</div>
+        <div class="actions">
+            <button class="btn" onclick="go(1)">BACA LAGI DARI AWAL ↗</button>
+        </div>
+        <div class="footer">DIBUAT DENGAN TULUS · DARI NAY</div>
+    </div>
+</div>
+</section>
 
-<p>
-Nay lebih ingin melihat kamu bahagia
-menjalani hidup, bukan hanya sibuk mengejar
-semuanya sampai lupa menikmati prosesnya.
-</p>
+<script>
+// BINTANG
+const stars = document.getElementById("stars");
 
-<p style="color:#76baff;">
-Jangan lupa jaga diri sendiri, ya sayang.
-</p>
+for (let i = 0; i < 45; i++) {
+    const star = document.createElement("span");
+    star.className = "star";
+    star.innerHTML = "✦";
+    star.style.left = Math.random() * 100 + "%";
+    star.style.top = Math.random() * 100 + "%";
+    star.style.fontSize = (Math.random() * 7 + 5) + "px";
+    star.style.animationDelay = Math.random() * 3 + "s";
+    stars.appendChild(star);
+}
 
-<div class="tombol">
-<button onclick="go(5)">Lanjut →</button>
-<button class="kembali" onclick="go(3)">Kembali</button>
+// PINDAH HALAMAN
+function go(number) {
+    document.querySelectorAll(".page").forEach(page => {
+        page.classList.remove("active");
+    });
+
+    document.getElementById("page" + number).classList.add("active");
+
+    document.querySelector(".progress-fill").style.width =
+        (number / 9 * 100) + "%";
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+// PESAN RAHASIA
+function showSecret(number) {
+    const messages = {
+        1: "Sayang, kalau hari ini terasa berat, nggak apa-apa untuk mengambil waktu sejenak. Kamu tidak harus selalu terlihat baik-baik saja. Semoga besok menjadi hari yang lebih menyenangkan.",
+        2: "Kalau hari ini kamu bahagia, nikmati setiap momennya. Nay berharap kebahagiaan seperti itu selalu punya tempat dalam hari-harimu.",
+        3: "Kamu sudah melakukan banyak hal. Jangan lupa istirahat, makan dengan teratur, dan menjaga dirimu. Tidak semua hal harus selesai hari ini.",
+        4: "Jangan terlalu sering meragukan dirimu sendiri. Kamu masih punya banyak kesempatan untuk belajar, mencoba, dan memperbaiki keadaan.",
+        5: "Kalau kamu sedang merindukan Nay, ingat bahwa ada seseorang yang selalu berharap hari-harimu berjalan baik. Semoga kamu selalu punya alasan untuk tersenyum.",
+        6: "Pesan paling spesial dari Nay: terima kasih sudah menjadi bagian dari cerita ini. Nay bangga sama kamu, menghargai perjuanganmu, dan berharap banyak hal baik datang dalam hidupmu. Tetap semangat, sayang."
+    };
+
+    const result = document.getElementById("secretResult");
+    result.style.display = "block";
+    result.innerText = messages[number];
+
+    result.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest"
+    });
+}
+</script>
+
+</body>
+</html>
